@@ -1,5 +1,29 @@
-if(getRversion() >= "2.15.1") utils::globalVariables(c(
-  ".", "codebook", "data_dictionary", "subject_label", "event_sequence",
-  "verbal", "nonverbal", "min_age", "max_age", "raw_score", "iq", "ae",
-  "sum_of_standard_scores", "verbal_raw_score", "nonverbal_raw_score"
-))
+if (getRversion() >= "2.15.1") {
+  utils::globalVariables(c(
+    ".",
+    "codebook",
+    "data_dictionary",
+    "subject_label",
+    "event_sequence",
+    "verbal",
+    "nonverbal",
+    "min_age",
+    "max_age",
+    "raw_score",
+    "iq",
+    "ae",
+    "sum_of_standard_scores",
+    "verbal_raw_score",
+    "nonverbal_raw_score",
+    "crf_data_exclude_phi",
+    "coenroll_exclude_phi",
+    "dd_field_name",
+    "dd_revision_field_value",
+    "site_label",
+    "Site",
+    "items",
+    "edc",
+    "latest",
+    "left_join"
+  ))
+}
