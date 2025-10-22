@@ -12,7 +12,6 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.3.2
 Imports:
-    data.table,
     doParallel,
     dplyr,
     foreach,
@@ -20,6 +19,7 @@ Imports:
     magrittr,
     parallel,
     plyr,
+    rlang,
     tibble,
     utils,
     shiny
