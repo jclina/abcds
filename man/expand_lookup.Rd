@@ -21,7 +21,7 @@ Expands the look-up table in cases where there are ranges in the scores
 Expands the look-up table in cases where there are ranges in the scores
 }
 \seealso{
-\code{\link[data.table]{:=}}
+\code{\link[rlang]{:=}}
 \code{\link[tibble]{tibble}}
 }
 \keyword{internal}
