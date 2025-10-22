@@ -1,11 +1,10 @@
 #' @importFrom utils write.csv
-#' @importFrom dplyr arrange left_join
+#' @importFrom dplyr arrange
 
-merge_data <- function(directory){
-
-  if(dir.exists(file.path(directory, "participants"))){
+merge_data <- function(directory) {
+  if (dir.exists(file.path(directory, "participants"))) {
     p <- list.files(file.path(directory, "participants"), full.names = TRUE)
-  } else{
+  } else {
     f <- list.files(directory, recursive = TRUE, full.names = TRUE)
     p <- f[-grep(pattern = ".pdf$|Controls|Data_Dictionary|Codebook", f)]
   }
@@ -18,34 +17,34 @@ merge_data <- function(directory){
 
   data <- demo
 
-  for(i in files2merge){
+  for (i in files2merge) {
     print(basename(i))
     temp <- utils::read.csv(i)
     temp$update_stamp <- NULL
-    if(grepl("MRI", basename(i))){ # MRI seems to have duplicated IDs
+    if (grepl("MRI", basename(i))) {
+      # MRI seems to have duplicated IDs
       temp <- temp[!duplicated(temp), ]
     }
-    if("site_id" %in% colnames(temp)){
-      data <- dplyr::left_join(data, temp, by = c("subject_label", "site_id", "event_sequence"))
-    } else{
-      data <- dplyr::left_join(data, temp, by = c("subject_label", "event_sequence"))
+    if ("site_id" %in% colnames(temp)) {
+      data <- abcds_join(
+        data,
+        temp,
+        by = c("subject_label", "site_id", "event_sequence"),
+        join_type = left_join
+      )
+    } else {
+      data <- abcds_join(
+        data,
+        temp,
+        by = c("subject_label", "event_sequence"),
+        join_type = left_join
+      )
     }
   }
 
-  utils::write.csv(data, file = file.path(directory, "merged_data.csv"), row.names = FALSE)
-
+  utils::write.csv(
+    data,
+    file = file.path(directory, "merged_data.csv"),
+    row.names = FALSE
+  )
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
