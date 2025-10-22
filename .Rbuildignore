@@ -1,8 +1,14 @@
 ^LICENSE\.md$
 ^abcds\.Rproj$
 ^\.Rproj\.user$
+.vscode
 
 # Remove documents required for deployment
-inst/app/kbit2/*
-!inst/app/kbit2/app.R
-!inst/app/kbit2/www
+inst/app/kbit2/DESCRIPTION
+inst/app/kbit2/kbit2.Rproj
+inst/app/kbit2/LICENSE
+inst/app/kbit2/LICENSE.md
+inst/app/kbit2/.posit
+inst/app/kbit2/.Rbuildignore
+inst/app/kbit2/renv
+inst/app/kbit2/renv.lock
