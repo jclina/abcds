@@ -200,6 +200,6 @@ read_medications <- function(
   } else if (exists("controls", inherits = FALSE)) {
     return(controls)
   } else {
-    stop("Did not find any medication files")
+    stop("Did not find any medication files in the directory")
   }
 }
