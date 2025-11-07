@@ -23,12 +23,13 @@ apply_factor_labels <- function(data) {
           !!i,
           delim = "|"
         )
+      } else {
+        data[[i]] <- factor(
+          data[[i]],
+          levels = codebook$field_code[which(codebook$field_name == i)],
+          labels = codebook$field_code_label[which(codebook$field_name == i)]
+        )
       }
-      data[[i]] <- factor(
-        data[[i]],
-        levels = codebook$field_code[which(codebook$field_name == i)],
-        labels = codebook$field_code_label[which(codebook$field_name == i)]
-      )
     }
   }
 
