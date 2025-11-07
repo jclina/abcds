@@ -24,6 +24,7 @@ if (getRversion() >= "2.15.1") {
     "items",
     "edc",
     "latest",
-    "left_join"
+    "left_join",
+    "full_join"
   ))
 }
